@@ -2,6 +2,7 @@ import {Box} from "@mui/material";
 import BookList from "@site/src/components/BookFeatures/BookList";
 import {Book} from "@site/src/components/BookFeatures/BookModel";
 import {useState} from "react";
+import AddBook from "@site/src/components/BookFeatures/AddBook";
 
 const BookFeature = () => {
     const mockBook: Book = {
@@ -20,7 +21,7 @@ const BookFeature = () => {
     }
     return(
         <Box>
-            123
+            <AddBook />
             <BookList books={books} deleteBook={deleteBook} editBook={editBook}/>
         </Box>)
 }
