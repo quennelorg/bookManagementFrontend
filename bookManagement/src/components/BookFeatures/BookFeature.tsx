@@ -6,13 +6,32 @@ import AddBook from "@site/src/components/BookFeatures/View/AddBook";
 import {deleteBookById, getBooks, saveBooks} from "@site/src/components/BookFeatures/Service/bookService";
 import _ from "lodash";
 import * as React from "react";
+import Button from "@mui/material/Button";
+import dayjs, {Dayjs} from "dayjs";
 
 const BookFeature = () => {
     const [openAddBookDialog, setOpenAddBookDialog] = React.useState(false);
 
     const [books, setBooks] = useState<Book[]>( [])
+    const [oldBook, setOldBook] = useState<Book>( null)
+    const [selectedDate, setSelectedDate] = React.useState<Dayjs | null>(dayjs(new Date()));
+
+    const handleClickOpen = () => {
+        setOpenAddBookDialog(true);
+    };
+
+    const handleClose = () => {
+        setOpenAddBookDialog(false);
+        setOldBook(null)
+        setSelectedDate(dayjs(new Date()))
+    };
+
+
     const editBook = (book: Book) => {
-        console.log(book.id)
+        setOldBook(book)
+        setSelectedDate(dayjs(new Date(book.publishedDate)))
+        handleClickOpen()
+        console.log(book)
     }
 
     const fetchBooks = () => {
@@ -30,6 +49,7 @@ const BookFeature = () => {
                 .then((res) => {
                     fetchBooks();
                     setOpenAddBookDialog(false)
+                    setOldBook(null)
                 }).catch((error) => {
                 console.log(error);
             })
@@ -50,7 +70,10 @@ const BookFeature = () => {
 
     return(
         <Box>
-            <AddBook addBook={addBook} open={openAddBookDialog} setOpen={setOpenAddBookDialog}/>
+            <Button variant="outlined" onClick={handleClickOpen}>
+                Add Book
+            </Button>
+            <AddBook addBook={addBook} open={openAddBookDialog} handleClose={handleClose} oldBook={oldBook} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
             {!_.isEmpty(books) && <BookList books={books} deleteBook={removeBook} editBook={editBook}/>}
         </Box>)
 }

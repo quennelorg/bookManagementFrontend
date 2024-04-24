@@ -6,30 +6,19 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import dayjs, {Dayjs} from "dayjs";
 import DateSelected from "@site/src/components/BookFeatures/View/DateSelected";
-import {getDateStringFromDayJs, getUUIDString} from "@site/src/components/BookFeatures/Util/util";
+import {getDateStringFromDayJs, getNewDay, getUUIDString} from "@site/src/components/BookFeatures/Util/util";
 import {Book} from "@site/src/components/BookFeatures/Model/bookModel";
 import _ from "lodash";
 
-const AddBook = ({addBook, open, setOpen}) => {
-
-    const [selectedDate, setSelectedDate] = React.useState<Dayjs | null>(dayjs(new Date()));
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
+const AddBook = ({addBook, open, handleClose, oldBook, selectedDate, setSelectedDate}) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const formJson = Object.fromEntries((formData as any).entries());
         const newBook: Book = {
-            id: getUUIDString(),
+            id: _.get(oldBook, 'id', getUUIDString()),
             title: _.get(formJson, 'title'),
             author: _.get(formJson, 'author'),
             isbn: _.get(formJson, 'isbn'),
@@ -41,9 +30,6 @@ const AddBook = ({addBook, open, setOpen}) => {
 
     return (
         <React.Fragment>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Add Book
-            </Button>
             <Dialog
                 open={open}
                 onClose={handleClose}
@@ -52,7 +38,7 @@ const AddBook = ({addBook, open, setOpen}) => {
                     onSubmit: (event: React.FormEvent<HTMLFormElement>) => handleSubmit(event),
                 }}
             >
-                <DialogTitle>Add Book</DialogTitle>
+                <DialogTitle>Book Operation</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
                         Please input book info
@@ -67,6 +53,7 @@ const AddBook = ({addBook, open, setOpen}) => {
                         type="title"
                         fullWidth
                         variant="standard"
+                        defaultValue={_.get(oldBook, 'title')}
                     />
                     <TextField
                         margin="dense"
@@ -76,6 +63,7 @@ const AddBook = ({addBook, open, setOpen}) => {
                         type="author"
                         fullWidth
                         variant="standard"
+                        defaultValue={_.get(oldBook, 'author')}
                     />
                     <TextField
                         margin="dense"
@@ -85,6 +73,7 @@ const AddBook = ({addBook, open, setOpen}) => {
                         type="isbn"
                         fullWidth
                         variant="standard"
+                        defaultValue={_.get(oldBook, 'isbn')}
                     />
                     <DateSelected value={selectedDate} setValue={setSelectedDate}/>
                 </DialogContent>

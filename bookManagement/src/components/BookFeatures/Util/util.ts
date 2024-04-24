@@ -14,4 +14,3 @@ const getUUID = () => {
         return v.toString(16);
     });
 }
-
