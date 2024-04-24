@@ -12,8 +12,6 @@ const getBookUrlOptions = (method: HTTPMETHOD, id?: string) => {
     };
 };
 
-export const localBooks: Book[] = []
-
 export const getBooks = () => {
     return axios.request(getBookUrlOptions(HTTPMETHOD.get))
 };

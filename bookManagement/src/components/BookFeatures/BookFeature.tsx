@@ -23,12 +23,14 @@ const BookFeature = () => {
     };
 
     const addBook = (newBook: Book) => {
-        saveBooks(newBook)
-            .then((res) => {
-                fetchBooks();
-            }).catch((error) => {
-            console.log(error);
-        })
+        if(!!newBook.id && !_.isEmpty(newBook)) {
+            saveBooks(newBook)
+                .then((res) => {
+                    fetchBooks();
+                }).catch((error) => {
+                console.log(error);
+            })
+        }
     };
 
     const removeBook = (id: string) => {
@@ -42,9 +44,10 @@ const BookFeature = () => {
     useEffect(() => {
         fetchBooks()
     }, [])
+
     return(
         <Box>
-            <AddBook />
+            <AddBook addBook={addBook}/>
             {!_.isEmpty(books) && <BookList books={books} deleteBook={removeBook} editBook={editBook}/>}
         </Box>)
 }
