@@ -2,6 +2,7 @@ import React from 'react';
 import { Stack, ListItem, List, Typography, ListItemButton, ListItemIcon, IconButton, Paper } from '@mui/material';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete';
+
 const BookList = ({ books, deleteBook, editBook }) => {
     return (
         <Paper elevation={6} square={false} sx={{ bgcolor: 'background.paper' }}>
@@ -28,12 +29,13 @@ const BookListItem = ({ book, deleteBook, editBook }) => {
             sx={{ width: '100%', margin: 'auto', display: 'flex', justifyContent: 'space-around', border: '1px solid light-gray' }}
             secondaryAction={
                 <Stack direction="row" spacing={2}>
-                    <IconButton edge="end" aria-label="edit" onClick={() => editBook(book)} >
+                    <IconButton edge="end" color="primary" aria-label="edit" onClick={() => editBook(book)} >
                         <ModeEditIcon />
                     </IconButton>
                     <IconButton
                         edge="end"
                         aria-label="delete"
+                        color="error"
                         onClick={() => deleteBook(book.id)}
                     >
                         <DeleteIcon />
@@ -45,28 +47,28 @@ const BookListItem = ({ book, deleteBook, editBook }) => {
             <ListItemButton>
                 <Stack spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap">
                     <Typography
-                        sx={{ width: '70%' }}
+                        sx={{ width: '100%' }}
                         style={{ color: 'black' }}
                         key={book.id}
                     >
                         Title: {book.title}
                     </Typography>
                     <Typography
-                        sx={{ width: '70%' }}
+                        sx={{ width: '100%' }}
                         style={{ color: 'black' }}
                         key={book.id}
                     >
                         Author: {book.author}
                     </Typography>
                     <Typography
-                        sx={{ width: '70%' }}
+                        sx={{ width: '100%' }}
                         style={{ color: 'black' }}
                         key={book.id}
                     >
                         ISBN: {book.isbn}
                     </Typography>
                     <Typography
-                        sx={{ width: '70%' }}
+                        sx={{ width: '100%' }}
                         style={{ color: 'black' }}
                         key={book.id}
                     >

@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import DateSelected from "@site/src/components/BookFeatures/View/DateSelected";
-import {getDateStringFromDayJs, getNewDay, getUUIDString} from "@site/src/components/BookFeatures/Util/util";
+import {getDateStringFromDayJs, getUUIDString} from "@site/src/components/BookFeatures/Util/util";
 import {Book} from "@site/src/components/BookFeatures/Model/bookModel";
 import _ from "lodash";
 
