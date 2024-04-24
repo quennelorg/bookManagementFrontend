@@ -8,12 +8,12 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import dayjs, {Dayjs} from "dayjs";
 import DateSelected from "@site/src/components/BookFeatures/View/DateSelected";
-import {getDateStringFromDayJs} from "@site/src/components/BookFeatures/Util/util";
+import {getDateStringFromDayJs, getUUIDString} from "@site/src/components/BookFeatures/Util/util";
 import {Book} from "@site/src/components/BookFeatures/Model/bookModel";
 import _ from "lodash";
 
-const AddBook = ({addBook}) => {
-    const [open, setOpen] = React.useState(false);
+const AddBook = ({addBook, open, setOpen}) => {
+
     const [selectedDate, setSelectedDate] = React.useState<Dayjs | null>(dayjs(new Date()));
 
     const handleClickOpen = () => {
@@ -29,7 +29,7 @@ const AddBook = ({addBook}) => {
         const formData = new FormData(e.currentTarget);
         const formJson = Object.fromEntries((formData as any).entries());
         const newBook: Book = {
-            id: '11111',
+            id: getUUIDString(),
             title: _.get(formJson, 'title'),
             author: _.get(formJson, 'author'),
             isbn: _.get(formJson, 'isbn'),

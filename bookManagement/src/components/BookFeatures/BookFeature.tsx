@@ -5,8 +5,10 @@ import {useEffect, useState} from "react";
 import AddBook from "@site/src/components/BookFeatures/View/AddBook";
 import {deleteBookById, getBooks, saveBooks} from "@site/src/components/BookFeatures/Service/bookService";
 import _ from "lodash";
+import * as React from "react";
 
 const BookFeature = () => {
+    const [openAddBookDialog, setOpenAddBookDialog] = React.useState(false);
 
     const [books, setBooks] = useState<Book[]>( [])
     const editBook = (book: Book) => {
@@ -27,6 +29,7 @@ const BookFeature = () => {
             saveBooks(newBook)
                 .then((res) => {
                     fetchBooks();
+                    setOpenAddBookDialog(false)
                 }).catch((error) => {
                 console.log(error);
             })
@@ -47,7 +50,7 @@ const BookFeature = () => {
 
     return(
         <Box>
-            <AddBook addBook={addBook}/>
+            <AddBook addBook={addBook} open={openAddBookDialog} setOpen={setOpenAddBookDialog}/>
             {!_.isEmpty(books) && <BookList books={books} deleteBook={removeBook} editBook={editBook}/>}
         </Box>)
 }
