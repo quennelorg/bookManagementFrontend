@@ -12,7 +12,7 @@ import {getDateStringFromDayJs} from "@site/src/components/BookFeatures/Util/uti
 
 const AddBook = () => {
     const [open, setOpen] = React.useState(false);
-    const [selectedDate, setSelectedDate] = React.useState<Dayjs | null>(dayjs('2022-04-17'));
+    const [selectedDate, setSelectedDate] = React.useState<Dayjs | null>(dayjs(new Date()));
 
     const handleClickOpen = () => {
         setOpen(true);
