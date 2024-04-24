@@ -5,3 +5,8 @@ export interface Book {
     isbn: string;
     publishedDate: string;
 }
+export enum HTTPMETHOD {
+    get = 'GET',
+    post = 'POST',
+    delete = 'DELETE'
+}

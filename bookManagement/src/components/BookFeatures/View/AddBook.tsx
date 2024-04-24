@@ -7,8 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import dayjs, {Dayjs} from "dayjs";
-import DateSelected from "@site/src/components/BookFeatures/DateSelected";
-import {getDateStringFromDayJs} from "@site/src/components/BookFeatures/util";
+import DateSelected from "@site/src/components/BookFeatures/View/DateSelected";
+import {getDateStringFromDayJs} from "@site/src/components/BookFeatures/Util/util";
 
 const AddBook = () => {
     const [open, setOpen] = React.useState(false);
@@ -22,6 +22,13 @@ const AddBook = () => {
         setOpen(false);
     };
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const formJson = Object.fromEntries((formData as any).entries());
+        console.log(formJson)
+    };
+
     return (
         <React.Fragment>
             <Button variant="outlined" onClick={handleClickOpen}>
@@ -32,15 +39,7 @@ const AddBook = () => {
                 onClose={handleClose}
                 PaperProps={{
                     component: 'form',
-                    onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-                        event.preventDefault();
-                        const formData = new FormData(event.currentTarget);
-                        const formJson = Object.fromEntries((formData as any).entries());
-                        const title = formJson.title;
-                        console.log(formJson);
-                        console.log(getDateStringFromDayJs(selectedDate))
-                        handleClose();
-                    },
+                    onSubmit: (event: React.FormEvent<HTMLFormElement>) => handleSubmit(event),
                 }}
             >
                 <DialogTitle>Add Book</DialogTitle>
