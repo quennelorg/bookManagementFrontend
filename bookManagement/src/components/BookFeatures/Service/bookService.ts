@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {Book, HTTPMETHOD} from "@site/src/components/BookFeatures/Model/bookModel";
 
-const URL = 'http://localhost:8080/book'
+const URL = 'http://13.55.148.191:8080/book'
 const getBookUrlOptions = (method: HTTPMETHOD, id?: string) => {
     return {
         method: method,
