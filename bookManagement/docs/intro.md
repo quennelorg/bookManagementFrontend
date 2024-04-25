@@ -4,44 +4,23 @@ sidebar_position: 1
 
 # Tutorial Intro
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Let's discover **Book Management** World.
 
 ## Getting Started
 
-Get started by **creating a new site**.
+Get started by Git Repo
+- **[Backend And IOS Git repo](https://github.com/quennelorg/bookManagement)**
+- **[Web Application And Project Document Git Repo](https://github.com/quennelorg/bookManagementFrontend)**
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Or **try experience the application immediately** with **[Web Application And Project Document](https://quennelorg.github.io/bookManagementFrontend/book/)**.
 
 ### What you'll need
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+If you want to run the project local
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+You Need to follow setup:
+- [Xcode](https://developer.apple.com/xcode/#) Xcode 15 
+- [Node](https://nodejs.org/en) Node 18
+- [JDK](https://docs.oracle.com/en/java/javase/17/install/installation-jdk-macos.html) JDK 17
+- [Colima](https://github.com/abiosoft/colima) or [Docker](https://docs.docker.com/desktop/install/mac-install/)
+- [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
