@@ -1,4 +1,4 @@
-import {Box} from "@mui/material";
+import {Box, Grid} from "@mui/material";
 import BookList from "@site/src/components/BookFeatures/View/BookList";
 import {Book} from "@site/src/components/BookFeatures/Model/bookModel";
 import {useEffect, useState} from "react";
@@ -8,6 +8,8 @@ import _ from "lodash";
 import * as React from "react";
 import Button from "@mui/material/Button";
 import dayjs, {Dayjs} from "dayjs";
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 const BookFeature = () => {
     const [openAddBookDialog, setOpenAddBookDialog] = React.useState(false);
@@ -25,6 +27,10 @@ const BookFeature = () => {
         setOldBook(null)
         setSelectedDate(dayjs(new Date()))
     };
+
+    const handleClickRefresh = () => {
+        fetchBooks()
+    }
 
 
     const editBook = (book: Book) => {
@@ -70,11 +76,23 @@ const BookFeature = () => {
 
     return(
         <Box>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Add Book
-            </Button>
+            <Grid container spacing={2} sx={{mt:1}}>
+                <Grid item xs={6} display="flex" justifyContent="center" alignItems="center">
+                    <Button variant="outlined" onClick={handleClickOpen} startIcon={<AddOutlinedIcon />}>
+                        Add Book
+                    </Button>
+                </Grid>
+                <Grid item xs={6} display="flex" justifyContent="center" alignItems="center">
+                    <Button variant="outlined" onClick={handleClickRefresh} startIcon={<CloudUploadIcon />}>
+                        Refresh Book Resource
+                    </Button>
+                </Grid>
+                <Grid item xs={12}>
+                    {!_.isEmpty(books) && <BookList books={books} deleteBook={removeBook} editBook={editBook}/>}
+                </Grid>
+            </Grid>
             <AddBook addBook={addBook} open={openAddBookDialog} handleClose={handleClose} oldBook={oldBook} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
-            {!_.isEmpty(books) && <BookList books={books} deleteBook={removeBook} editBook={editBook}/>}
+
         </Box>)
 }
 export default BookFeature
