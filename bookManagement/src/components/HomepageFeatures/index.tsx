@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import Link from "@docusaurus/Link";
 
 type FeatureItem = {
   title: string;
@@ -10,32 +11,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Cross Platform',
+    Svg: require('@site/static/img/spring-svgrepo-com.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        The Book Management system has IOS App, Frontend Application. The data would be store in MongoDB on cloud by backend on cloud
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Detailed Tutorial',
+    Svg: require('@site/static/img/gitbook-svgrepo-com.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+          The Book Management system provide sufficient tutorials for explore the structure of the project
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Powered by Full Stack',
+    Svg: require('@site/static/img/react-svgrepo-com.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+          The Book Management system could be established by one person. The tech stack is about SpringBoot, Docker, MongoDB, AWS, ECS, React, Docusaurus, Material-UI, SwiftUI, Combine, GithubPages
       </>
     ),
   },
@@ -48,7 +46,11 @@ function Feature({title, Svg, description}: FeatureItem) {
         <Svg className={styles.featureSvg} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
+          <Link
+              className="button button--outline button--link button--md"
+              to="/docs/intro">
+              <Heading as="h3">{title}</Heading>
+          </Link>
         <p>{description}</p>
       </div>
     </div>

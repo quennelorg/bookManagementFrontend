@@ -3,9 +3,9 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'Book Management',
+  tagline: 'Get Your Book',
+  favicon: 'img/cat.ico',
 
   // Set the production url of your site here
   url: 'https://quennelorg.github.io',
@@ -35,17 +35,9 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -58,10 +50,10 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'My Book',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'Book',
+        src: 'img/cat.svg',
       },
       items: [
         {
@@ -70,9 +62,9 @@ const config: Config = {
           position: 'left',
           label: 'Tutorial',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/book', label: 'Book', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/Quennel-coder',
           label: 'GitHub',
           position: 'right',
         },
@@ -91,20 +83,12 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
+          title: 'Feature',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
+              label: 'Book',
+              href: '/book',
+            }
           ],
         },
         {
@@ -112,11 +96,11 @@ const config: Config = {
           items: [
             {
               label: 'Blog',
-              to: '/blog',
+              to: 'https://quennelorg.github.io/quennelBlog/blog',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/Quennel-coder',
             },
           ],
         },
