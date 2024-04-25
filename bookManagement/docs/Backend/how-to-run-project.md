@@ -9,4 +9,7 @@ sidebar_position: 1
 - `cd backend`
 - Find the directory: bookAPI and use IDEA open it
 - Then use `./gradlew install` the dependency. By the way, you need have environment setup in [Intro](/docs/intro)
+- you need use docker to lunch mongoDB 
+  - `docker pull mongo`
+  - `docker start your-images-name`
 - If success, you can run the project by `./gradlew bootRun`
