@@ -6,6 +6,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
+import configProxy from "@site/configProxy/configProxy";
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -17,11 +18,19 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/book">
-            Management Your Book World
-          </Link>
+            {configProxy.NEED_DEPLOY_TO_AWS ?
+                <Link
+                    className="button button--secondary button--lg"
+                    to="/book">
+                    Manage Your Book World
+                </Link>
+                :
+                <Link
+                    className="button button--secondary button--lg"
+                    to="http://quennelcoder-bookmanagement.s3-website-ap-southeast-2.amazonaws.com/book">
+                    Due to the https restrict, You need to Go to another site to explore Your Book World
+                </Link>
+            }
         </div>
       </div>
     </header>

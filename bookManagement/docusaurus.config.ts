@@ -1,17 +1,22 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import configProxy from "@site/configProxy/configProxy";
 
 const config: Config = {
   title: 'Book Management',
   tagline: 'Get Your Book',
   favicon: 'img/cat.ico',
 
-  // Set the production url of your site here
-  url: 'https://quennelorg.github.io',
+
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/bookManagementFrontend',
+  // aws static page
+  url: configProxy.NEED_DEPLOY_TO_AWS ? configProxy.AWS_URL : configProxy.GITHUB_PAGE_URL,
+  baseUrl: configProxy.NEED_DEPLOY_TO_AWS ? '/' : '/bookManagementFrontend',
+  // githubPage
+  // url: 'https://quennelorg.github.io',
+  // baseUrl: '/bookManagementFrontend',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
