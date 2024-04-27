@@ -11,3 +11,4 @@ sidebar_position: 1
 - Find the directory: BookManagement and use Xcode open it
 - Then just run the project
 - By the way, you need have environment setup in [Intro](/docs/intro)
+- If you have any question or problem, please send email to me!

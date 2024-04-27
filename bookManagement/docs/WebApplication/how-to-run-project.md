@@ -10,3 +10,5 @@ sidebar_position: 1
 - `yarn install`
 - `yarn start`
 - By the way, you need have environment setup in [Intro](/docs/intro)
+- If success, you can explore web application by localhost:3000
+- If you have any question or problem, please send email to me!
