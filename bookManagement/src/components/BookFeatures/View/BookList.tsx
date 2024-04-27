@@ -72,7 +72,7 @@ const BookListItem = ({ book, deleteBook, editBook }) => {
                         style={{ color: 'black' }}
                         key={book.id}
                     >
-                        publishedDate: {book.publishedDate}
+                        PublishedDate: {book.publishedDate}
                     </Typography>
                 </Stack>
 
