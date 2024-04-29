@@ -14,7 +14,7 @@ export default function Book(): JSX.Element {
 				<div className={styles.buttons}>
 					<Link
 						className="button button--secondary button--lg"
-						to="http://quennelcoder-bookmanagement.s3-website-ap-southeast-2.amazonaws.com/book">
+						to={configProxy.AWS_BOOK_URL}>
 						Due to the https restrict, You need to Go to another site to explore Your Book World
 					</Link>
 				</div>
