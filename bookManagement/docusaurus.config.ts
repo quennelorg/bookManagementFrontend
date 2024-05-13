@@ -11,7 +11,7 @@ const config: Config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   // aws static page
-  // url: 'http://quennelcoder-book.s3-website-ap-southeast-2.amazonaws.com/',
+  // url: 'http://quennelcoder.s3-website-ap-southeast-2.amazonaws.com/',
   // baseUrl: '/',
   // githubPage
   url: 'https://quennelorg.github.io',
